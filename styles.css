@@ -1,0 +1,208 @@
+:root {
+  --deep-red: #7b1225;
+  --warm-red: #c9273c;
+  --hot-pink: #ff4d6d;
+  --soft-pink: #ffb3c1;
+  --glow: rgba(255, 77, 109, 0.6);
+  --text: #fff6f8;
+  --shadow: rgba(18, 2, 6, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #2b0a14, #0b0507 60%);
+  color: var(--text);
+}
+
+.scene {
+  width: min(92vw, 900px);
+  display: grid;
+  gap: 28px;
+  justify-items: center;
+  text-align: center;
+}
+
+.title p {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: var(--soft-pink);
+  text-shadow: 0 0 12px rgba(255, 179, 193, 0.6);
+}
+
+.heart-stage {
+  perspective: 1200px;
+}
+
+.heart {
+  position: relative;
+  width: min(80vw, 380px);
+  height: min(80vw, 360px);
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 45% 45% 55% 55%;
+  background: radial-gradient(circle at 30% 30%, #ff6b81, #b0172c 55%, #5b0d1b 90%);
+  transform: translateZ(-40px) scale(0.98);
+  filter: blur(12px);
+  opacity: 0.55;
+}
+
+.heart::after {
+  transform: translateZ(-70px) scale(0.92);
+  opacity: 0.4;
+}
+
+.heart-part {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  color: #2a0207;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  padding: 10px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--hot-pink), var(--warm-red));
+  box-shadow: 0 12px 24px var(--shadow), inset 0 0 14px rgba(255, 255, 255, 0.35);
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.heart-part::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  transform: translateZ(6px);
+  pointer-events: none;
+}
+
+.heart-part:hover,
+.heart-part:focus-visible {
+  outline: none;
+  transform: translateZ(20px) scale(1.05);
+  box-shadow: 0 18px 28px var(--glow), inset 0 0 18px rgba(255, 255, 255, 0.45);
+}
+
+.part-aorta {
+  top: 10px;
+  left: 50%;
+  width: 140px;
+  transform: translateX(-50%) translateZ(25px) rotateX(10deg);
+  background: linear-gradient(140deg, #ff8fa3, #d62440);
+}
+
+.part-atrium-left {
+  top: 70px;
+  left: 12px;
+  width: 150px;
+  height: 90px;
+  transform: rotateY(-12deg) translateZ(18px);
+}
+
+.part-atrium-right {
+  top: 70px;
+  right: 12px;
+  width: 150px;
+  height: 90px;
+  transform: rotateY(12deg) translateZ(18px);
+}
+
+.part-ventricle-left {
+  bottom: 70px;
+  left: 30px;
+  width: 160px;
+  height: 110px;
+  transform: rotateY(-10deg) translateZ(16px);
+  background: linear-gradient(145deg, #ff5675, #b71c36);
+}
+
+.part-ventricle-right {
+  bottom: 70px;
+  right: 30px;
+  width: 160px;
+  height: 110px;
+  transform: rotateY(10deg) translateZ(16px);
+  background: linear-gradient(145deg, #ff5675, #b71c36);
+}
+
+.part-arteries {
+  top: 170px;
+  left: 50%;
+  width: 140px;
+  transform: translateX(-50%) translateZ(22px) rotateX(-8deg);
+  background: linear-gradient(145deg, #ff6d88, #c21d37);
+}
+
+.part-veins {
+  bottom: 10px;
+  left: 50%;
+  width: 180px;
+  transform: translateX(-50%) translateZ(20px);
+  background: linear-gradient(145deg, #ff91a6, #c01a35);
+}
+
+.heart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(40px);
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--text);
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+.message {
+  width: min(90vw, 520px);
+  padding: 18px 22px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 24px rgba(10, 2, 4, 0.5);
+}
+
+.message p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--soft-pink);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(6deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(9deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .heart-part {
+    font-size: 0.65rem;
+  }
+
+  .heart-center {
+    font-size: 3.4rem;
+  }
+}
