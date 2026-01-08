@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corazón 3D - Feliz Mesario</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="scene">
+    <header class="title">
+      <p>Feliz mesario</p>
+    </header>
+
+    <section class="heart-stage" aria-label="Corazón 3D interactivo">
+      <div class="heart" role="list">
+        <div class="heart-base" aria-hidden="true"></div>
+        <button class="heart-part part-aorta" data-message="Eres mi aorta: llevas vida a cada latido." type="button">
+          Aorta
+        </button>
+        <button class="heart-part part-atrium-left" data-message="En mi aurícula izquierda guardo tus recuerdos favoritos." type="button">
+          Aurícula Izquierda
+        </button>
+        <button class="heart-part part-atrium-right" data-message="En mi aurícula derecha late la calma que me das." type="button">
+          Aurícula Derecha
+        </button>
+        <button class="heart-part part-ventricle-left" data-message="Mi ventrículo izquierdo late fuerte por ti." type="button">
+          Ventrículo Izquierdo
+        </button>
+        <button class="heart-part part-ventricle-right" data-message="Mi ventrículo derecho se llena de amor cuando sonríes." type="button">
+          Ventrículo Derecho
+        </button>
+        <button class="heart-part part-arteries" data-message="Nuestras arterias son caminos de amor infinito." type="button">
+          Arterias
+        </button>
+        <button class="heart-part part-veins" data-message="Mis venas regresan a ti una y otra vez." type="button">
+          Venas
+        </button>
+        <span class="heart-center" aria-label="Inicial en el centro">G</span>
+      </div>
+    </section>
+
+    <aside class="message" aria-live="polite">
+      <p>Haz clic en una parte del corazón para leer un mensaje de amor.</p>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
